@@ -1,15 +1,24 @@
-﻿using MediatR;
+﻿namespace Catalog.API.Products.CreateProduct;
 
-namespace Catalog.API.Products.CreateProduct;
+public record CreateProductRequest(string Name, List<string> Category, string Description, string ImageFile, decimal Price);
+public record CreateProductResponse(Guid Id);
 
-public record CreateProductCommand(string Name, List<string> Category, string Description, string ImageFile, decimal Price) : IRequest<CreateProductResult>;
-public record CreateProductResult(Guid Id);
-
-internal class CreateProductCommandEndpoint : IRequestHandler<CreateProductCommand, CreateProductResult>
+public class CreateProductEndpoint : ICarterModule
 {
-    public Task<CreateProductResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    public void AddRoutes(IEndpointRouteBuilder app)
     {
-        // Business logic to create a product
-        throw new NotImplementedException();
+        app.MapPost("/products", async (CreateProductRequest request, ISender sender) =>
+        {
+            var command = request.Adapt<CreateProductCommand>();
+            var result = await sender.Send(command);
+            var response = result.Adapt<CreateProductResponse>();
+
+            return Results.Created($"/products/{response.Id}", response);
+        })
+        .WithName("CreateProduct")
+        .Produces<CreateProductResponse>(StatusCodes.Status201Created)
+        .ProducesProblem(StatusCodes.Status400BadRequest)
+        .WithSummary("Create Prodcut")
+        .WithDescription("Create Prodcut");
     }
 }
