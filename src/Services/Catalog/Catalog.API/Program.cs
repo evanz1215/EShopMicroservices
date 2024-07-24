@@ -7,6 +7,7 @@ builder.Services.AddMediatR(config =>
 {
     config.RegisterServicesFromAssembly(assembly);
     config.AddOpenBehavior(typeof(ValidationBehavior<,>));
+    config.AddOpenBehavior(typeof(LoggingBehavior<,>));
 });
 
 builder.Services.AddValidatorsFromAssembly(assembly);
@@ -28,7 +29,7 @@ app.MapCarter();
 
 app.UseExceptionHandler(options => { });
 
-// ­ì¥ý¦b¦U¦Û·LªA°È¤¤¹ê²{¡A§ï¥ÑCustomExceptionHandler²Î¤@³B²z
+// ï¿½ï¿½ï¿½ï¿½bï¿½Uï¿½Û·Lï¿½Aï¿½È¤ï¿½ï¿½ï¿½{ï¿½Aï¿½ï¿½ï¿½CustomExceptionHandlerï¿½Î¤@ï¿½Bï¿½z
 //app.UseExceptionHandler(exceptionHandlerApp =>
 //{
 //    exceptionHandlerApp.Run(async context =>
