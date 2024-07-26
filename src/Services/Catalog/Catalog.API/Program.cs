@@ -1,3 +1,6 @@
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,7 +23,15 @@ builder.Services.AddMarten(options =>
     //options.AutoCreateSchemaObjects = Weasel.Core.AutoCreate.CreateOrUpdate;
 }).UseLightweightSessions();
 
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.InitializeMartenWith<CatalogInitialData>();
+}
+
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+
+builder.Services.AddHealthChecks()
+    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!);
 
 var app = builder.Build();
 
@@ -29,32 +40,9 @@ app.MapCarter();
 
 app.UseExceptionHandler(options => { });
 
-// ����b�U�۷L�A�Ȥ���{�A���CustomExceptionHandler�Τ@�B�z
-//app.UseExceptionHandler(exceptionHandlerApp =>
-//{
-//    exceptionHandlerApp.Run(async context =>
-//    {
-//        var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
-//        if (exception == null)
-//        {
-//            return;
-//        }
-
-//        var problemDetails = new ProblemDetails
-//        {
-//            Title = exception.Message,
-//            Status = 500,
-//            Detail = exception.StackTrace
-//        };
-
-//        var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
-//        logger.LogError(exception, exception.Message);
-
-//        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-//        context.Response.ContentType = "application/problem+json";
-
-//        await context.Response.WriteAsJsonAsync(problemDetails);
-//    });
-//});
+app.UseHealthChecks("/health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
 
 app.Run();

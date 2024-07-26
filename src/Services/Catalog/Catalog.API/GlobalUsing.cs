@@ -8,3 +8,5 @@ global using FluentValidation;
 global using Mapster;
 global using Marten;
 global using MediatR;
+global using Catalog.API.Data;
+global using Marten.Pagination;
