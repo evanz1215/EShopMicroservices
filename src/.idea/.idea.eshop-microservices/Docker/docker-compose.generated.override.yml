@@ -1,0 +1,38 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.4"
+services:
+  catalog.api:
+    build:
+      context: "D:\\Project\\MyProject\\CSharp\\EShopMicroservices\\src"
+      dockerfile: "Services/Catalog/Catalog.API/Dockerfile"
+      target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/rider-debugger/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
+    image: "catalogapi:dev"
+    ports:
+    - "127.0.0.1:57000:57100"
+    - "127.0.0.1:57200:57300"
+    volumes:
+    - "C:\\Users\\evanz\\.nuget\\packages:/home/app/.nuget/packages"
+    - "D:\\Project\\MyProject\\CSharp\\EShopMicroservices\\src\\Services\\Catalog\\\
+      Catalog.API:/app:rw"
+    - "D:\\Project\\MyProject\\CSharp\\EShopMicroservices\\src:/src:rw"
+    - "C:\\Users\\evanz\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2024.1.4\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2024.1\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\evanz\\AppData\\Local\\JetBrains\\Rider2024.1\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2024_7_28_01_26_27:/var/opt/rider-debugger:rw"
+    working_dir: "/app"
