@@ -1,6 +1,3 @@
 namespace Ordering.Domain.Events;
 
-public class OrderCreatedEvent
-{
-    
-}
+public record OrderCreatedEvent(Order order) : IDomainEvent;
