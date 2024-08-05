@@ -18,7 +18,7 @@ public class DispatchDomainEventsInterceptor(IMediator mediator) : SaveChangesIn
         return await base.SavingChangesAsync(eventData, result, cancellationToken);
     }
 
-    private async Task DispatchDomainEvents(DbContext? context)
+    public async Task DispatchDomainEvents(DbContext? context)
     {
         if (context == null)
         {
