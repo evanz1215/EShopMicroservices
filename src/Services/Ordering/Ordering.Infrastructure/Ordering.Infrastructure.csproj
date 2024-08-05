@@ -11,8 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Data\Extentions\" />
-      <Folder Include="Data\Interceptors\" />
+      <Folder Include="Data\Migrations\" />
     </ItemGroup>
 
     <ItemGroup>
