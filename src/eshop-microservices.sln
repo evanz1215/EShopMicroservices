@@ -22,21 +22,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{19ED2D19-0FD7-4CC2-871C-FA7F704B24E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.API", "Services\Basket\Basket.API\Basket.API.csproj", "{DA980146-F837-4B20-B9A8-89601209C371}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.API", "Services\Basket\Basket.API\Basket.API.csproj", "{DA980146-F837-4B20-B9A8-89601209C371}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{797839F4-3A4B-4015-A80E-50A8F8F03F75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.gRPC", "Services\Discount\Discount.gRPC\Discount.gRPC.csproj", "{9FFDC599-DEAE-47E8-8785-C30A4E419312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.gRPC", "Services\Discount\Discount.gRPC\Discount.gRPC.csproj", "{9FFDC599-DEAE-47E8-8785-C30A4E419312}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{D1F0AB96-0358-46BC-838B-8B7EB0671F7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.API", "Services\Ordering\Ordering.API\Ordering.API.csproj", "{662354F0-253E-4EA2-9AE2-98200F216C27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.API", "Services\Ordering\Ordering.API\Ordering.API.csproj", "{662354F0-253E-4EA2-9AE2-98200F216C27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Domain", "Services\Ordering\Ordering.Domain\Ordering.Domain.csproj", "{2E2925F1-2F7E-40FC-952C-3D6FF932AEB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Domain", "Services\Ordering\Ordering.Domain\Ordering.Domain.csproj", "{2E2925F1-2F7E-40FC-952C-3D6FF932AEB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Application", "Services\Ordering\Ordering.Application\Ordering.Application.csproj", "{5B7F6EC8-260C-4283-91E8-1431FBFB6B2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Application", "Services\Ordering\Ordering.Application\Ordering.Application.csproj", "{5B7F6EC8-260C-4283-91E8-1431FBFB6B2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Infrastructure", "Services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj", "{41E0B72A-71E0-436B-A404-115697748D26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Infrastructure", "Services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj", "{41E0B72A-71E0-436B-A404-115697748D26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Messaging", "BuildingBlocks\BuildingBlocks.Messaging\BuildingBlocks.Messaging.csproj", "{88AFB8D1-5C2F-49BF-A21F-617DB8EBA0FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +82,10 @@ Global
 		{41E0B72A-71E0-436B-A404-115697748D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41E0B72A-71E0-436B-A404-115697748D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41E0B72A-71E0-436B-A404-115697748D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88AFB8D1-5C2F-49BF-A21F-617DB8EBA0FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88AFB8D1-5C2F-49BF-A21F-617DB8EBA0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88AFB8D1-5C2F-49BF-A21F-617DB8EBA0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88AFB8D1-5C2F-49BF-A21F-617DB8EBA0FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{2E2925F1-2F7E-40FC-952C-3D6FF932AEB0} = {D1F0AB96-0358-46BC-838B-8B7EB0671F7A}
 		{5B7F6EC8-260C-4283-91E8-1431FBFB6B2A} = {D1F0AB96-0358-46BC-838B-8B7EB0671F7A}
 		{41E0B72A-71E0-436B-A404-115697748D26} = {D1F0AB96-0358-46BC-838B-8B7EB0671F7A}
+		{88AFB8D1-5C2F-49BF-A21F-617DB8EBA0FC} = {FB567B71-7DF7-4680-B804-07D85B6BC5B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFD6CD07-46BF-400B-AFA8-08E1AF3C3A4B}
