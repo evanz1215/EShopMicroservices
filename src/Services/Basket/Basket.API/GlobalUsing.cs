@@ -11,3 +11,4 @@ global using Basket.API.Exceptions;
 global using Basket.API.Data;
 global using BuildingBlocks.Exceptions.Haandler;
 global using Weasel.Core;
+global using Basket.API.Dtos;
