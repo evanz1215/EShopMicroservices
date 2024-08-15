@@ -35,5 +35,5 @@ public class CachedBasketRepository(IBasketRepository repository, IDistributedCa
         await cache.RemoveAsync(userName, cancellationToken);
 
         return true;
-    }
+   }
 }
